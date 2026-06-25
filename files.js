@@ -25,3 +25,12 @@ fs.mkdir("./assets", (err) => {
   }
 });
 // deleting files
+if (fs.existsSync("./assets/deleteme.txt")) {
+  fs.unlink("./assets/deleteme.txt", (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("file deleted");
+    }
+  });
+}
