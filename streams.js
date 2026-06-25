@@ -20,3 +20,17 @@ readStream.on("data", (chunk) => {
   writeStream.write("\nNEW CHUNK\n"); // ✅ Fixed
   writeStream.write(chunk);
 });
+
+// PIPING method
+
+const fs = require("fs");
+
+const readStream = fs.createReadStream("./docs/blog.txt", { encoding: "utf8" });
+const writeStream = fs.createWriteStream("./docs/blog2.txt");
+
+// This handles everything automatically!
+readStream.pipe(writeStream);
+
+readStream.on("error", (err) => console.log("Read error:", err.message));
+writeStream.on("error", (err) => console.log("Write error:", err.message));
+readStream.on("end", () => console.log("File copied successfully!"));
