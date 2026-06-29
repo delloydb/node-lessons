@@ -1,0 +1,24 @@
+{
+  "name": "lessons",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/delloydb/node-lessons#readme",
+  "bugs": {
+    "url": "https://github.com/delloydb/node-lessons/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delloydb/node-lessons.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "files.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  }
+}
