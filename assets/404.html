@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 — Page Not Found | Savory</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      /* ---------- Same brand variables as the main site ---------- */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: #fef9f5;
+        color: #2d2d2d;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 24px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* subtle background pattern matching the hero */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23c0392b" fill-opacity="0.04"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .container {
+        max-width: 600px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ---- Brand logo (clickable home) ---- */
+      .logo-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: "Georgia", "Times New Roman", serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #2c3e50;
+        text-decoration: none;
+        margin-bottom: 32px;
+        transition: transform 0.3s ease;
+      }
+      .logo-link:hover {
+        transform: scale(1.02);
+      }
+      .logo-link i {
+        color: #c0392b;
+        font-size: 1.6rem;
+      }
+
+      /* ---- 404 illustration ---- */
+      .illustration {
+        font-size: 8rem;
+        line-height: 1;
+        margin-bottom: 8px;
+        display: block;
+        animation: float 5s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-2deg);
+        }
+        50% {
+          transform: translateY(-18px) rotate(2deg);
+        }
+      }
+
+      /* ---- Main heading ---- */
+      h1 {
+        font-family: "Georgia", "Times New Roman", serif;
+        font-size: clamp(2.4rem, 6vw, 4rem);
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 8px;
+        letter-spacing: -0.5px;
+      }
+      h1 span {
+        color: #c0392b;
+        position: relative;
+      }
+      h1 span::after {
+        content: "";
+        position: absolute;
+        bottom: 4px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: #f1c40f;
+        border-radius: 4px;
+        opacity: 0.5;
+      }
+
+      /* ---- Subtitle ---- */
+      .subtitle {
+        font-size: 1.15rem;
+        color: #7f8c8d;
+        margin-bottom: 8px;
+        line-height: 1.7;
+      }
+      .subtitle strong {
+        color: #2c3e50;
+        font-weight: 600;
+      }
+
+      /* ---- Message ---- */
+      .message {
+        color: #7f8c8d;
+        font-size: 1rem;
+        line-height: 1.8;
+        max-width: 440px;
+        margin: 0 auto 32px;
+      }
+
+      /* ---- Actions ---- */
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 34px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-family: inherit;
+      }
+      .btn-primary {
+        background: #c0392b;
+        color: #ffffff;
+        box-shadow: 0 4px 16px rgba(192, 57, 43, 0.3);
+      }
+      .btn-primary:hover {
+        background: #a93226;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 28px rgba(192, 57, 43, 0.4);
+      }
+      .btn-outline {
+        background: transparent;
+        color: #2c3e50;
+        border: 2px solid #2c3e50;
+      }
+      .btn-outline:hover {
+        background: #2c3e50;
+        color: #ffffff;
+        transform: translateY(-3px);
+      }
+
+      /* ---- Helpful links ---- */
+      .quick-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px 28px;
+        justify-content: center;
+        margin-top: 8px;
+      }
+      .quick-links a {
+        color: #7f8c8d;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .quick-links a i {
+        color: #c0392b;
+        font-size: 0.8rem;
+      }
+      .quick-links a:hover {
+        color: #c0392b;
+      }
+
+      /* ---- Footer note ---- */
+      .footer-note {
+        margin-top: 48px;
+        font-size: 0.85rem;
+        color: #b0b0b0;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+        padding-top: 24px;
+        width: 100%;
+        max-width: 400px;
+      }
+      .footer-note i {
+        color: #c0392b;
+      }
+
+      /* ---- Responsive ---- */
+      @media (max-width: 600px) {
+        .illustration {
+          font-size: 5.6rem;
+        }
+        .actions .btn {
+          width: 100%;
+          justify-content: center;
+        }
+        .quick-links {
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+        }
+        .logo-link {
+          font-size: 1.3rem;
+        }
+        .footer-note {
+          margin-top: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Brand logo linking to home -->
+      <a href="/" class="logo-link"> <i class="fas fa-utensils"></i> Savory </a>
+
+      <!-- Fun 404 illustration -->
+      <span class="illustration">🍽️</span>
+
+      <h1>
+        <span>404</span>
+      </h1>
+
+      <p class="subtitle">
+        Oops! The plate you're looking for <strong>isn't on the menu</strong>.
+      </p>
+
+      <p class="message">
+        It seems you've wandered off the map. <br />
+        Maybe our kitchen ran out of that page, or it was never here to begin
+        with.
+      </p>
+
+      <!-- Action buttons -->
+      <div class="actions">
+        <a href="/" class="btn btn-primary">
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        <a href="#reservation" class="btn btn-outline">
+          <i class="fas fa-calendar-check"></i> Reserve a Table
+        </a>
+      </div>
+
+      <!-- Quick navigation -->
+      <div class="quick-links">
+        <a href="/menu"><i class="fas fa-utensil-spoon"></i> Our Menu</a>
+        <a href="/about"><i class="fas fa-info-circle"></i> About Us</a>
+        <a href="/contact"><i class="fas fa-envelope"></i> Contact</a>
+        <a href="/gallery"><i class="fas fa-images"></i> Gallery</a>
+      </div>
+
+      <div class="footer-note">
+        <i class="fas fa-heart"></i> Don't worry — the food is still delicious.
+      </div>
+    </div>
+  </body>
+</html>
